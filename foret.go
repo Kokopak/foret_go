@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 )
 
 const (
-	W = 80
-	H = 50
+	W     = 80
+	H     = 50
+	PROBA = 0.45
 )
 const (
 	EMPTY = 1
@@ -18,8 +18,12 @@ const (
 func genGrid() (grid [W][H]int) {
 	for row := 1; row < W-1; row++ {
 		for col := 1; col < H-1; col++ {
-			random := randInt(1, 3)
-			grid[row][col] = random
+			random := rand.Float64()
+			if random < PROBA {
+				grid[row][col] = TREE
+			} else {
+				grid[row][col] = EMPTY
+			}
 		}
 	}
 	grid[randInt(1, W-1)][randInt(1, H-1)] = FIRE
