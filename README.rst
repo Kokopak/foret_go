@@ -1,5 +1,5 @@
-Sokoban
-=======
+Feu de fôret en Go
+==================
 
 Utilisation
 -----------
